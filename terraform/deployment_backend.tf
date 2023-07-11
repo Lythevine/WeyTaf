@@ -1,6 +1,6 @@
-provider "kubernetes" {
-  config_path    = "~/.kube/config"
-}
+ provider "kubernetes" {
+   config_path    = "~/.kube/config"
+ }
 
 locals {
      name = "backend" 
@@ -12,7 +12,6 @@ resource "kubernetes_deployment" "my_deployment" {
    metadata {
      namespace = "rashid"
      name = local.name
-     #name = "${local.name}-pod"
      labels = {
        owner = local.owner
        type = local.type
