@@ -17,7 +17,7 @@ metadata:
 spec:
   template:
     metadata:
-      namespace: worketyamo
+      namespace: rashid
       name: my-replica
       labels:
         owner: lythevine
