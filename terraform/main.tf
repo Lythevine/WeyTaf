@@ -7,6 +7,10 @@ resource "kubernetes_pod_v1" "my-test" {
   metadata {
     name = "myfirst-pod"
     namespace = "rashid"
+    labels = {
+          owner: lythevine
+          type: service
+        }
   }
   spec {
     container {
@@ -20,6 +24,10 @@ resource "kubernetes_pod_v1" "my-test2" {
   metadata {
     name = "mysecond-pod"
     namespace = "rashid"
+    labels = {
+          owner: lythevine
+          type: service
+        }
   }
   spec {
     container {
@@ -33,6 +41,10 @@ resource "kubernetes_pod_v1" "my-test3" {
   metadata {
     name = "mythird-pod"
     namespace = "rashid"
+    labels = {
+          owner: lythevine
+          type: service
+        }
   }
   spec {
     container {

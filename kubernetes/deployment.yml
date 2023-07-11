@@ -1,0 +1,41 @@
+#On utilise un déploiment au lieu de créer des pod de manière traditionnelle car :
+# Un déploiement fournit des mises à jour déclaratives pour les pods et les ReplicaSets.
+# Vous décrivez un état souhaité dans un déploiement, et le contrôleur de déploiement modifie 
+# l'état réel en l'état souhaité à une vitesse contrôlée.
+# Un déploiement a pour avantage qu’il  a des composants en plus (mise à jour, scalage(scaling out et scaling in). 
+# Le déploiement va également gérer des cycles de déploiement en utilisant les stratégies de déploiement ex les avoid dont time 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  namespace: rashid
+  name: lythevine-deployment
+  labels: 
+    owner: lythevine
+    type: service
+  
+spec:
+  template:
+    metadata:
+      namespace: worketyamo
+      name: my-replica
+      labels:
+        owner: lythevine
+        type: service 
+    
+    spec:
+      nodeSelector:
+        dedicated: master
+      containers:
+        - name: marwalythe3
+          image: lythevine/mymarwaney:my_marwaney
+  replicas: 3   
+  selector:
+    matchLabels:
+      owner: lythevine
+      type: service
+
+
+
+    
+      
